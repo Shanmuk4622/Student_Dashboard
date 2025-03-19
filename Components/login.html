@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login - Pulse Engine</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../Components/login.css">
 </head>
 
 <body>
@@ -24,11 +24,11 @@
                 Continue with GitHub
             </button> -->
             <!-- <code>if email login is not working use google login</code> -->
-            <button id="googleLogin" class="login-button">
+            <!-- <button id="googleLogin" class="login-button">
                 <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
                     alt="Google">
                 Continue with Google
-            </button>
+            </button> -->
         </div>
 
         <div class="divider">
@@ -99,24 +99,34 @@
             }
         });
 
+        /*
         document.getElementById('githubLogin').addEventListener('click', async () => {
             const { error } = await window.supabaseClient.auth.signInWithOAuth({
                 provider: 'github',
                 options: {
-                    redirectTo: 'index.html' // Changed from absolute to relative path
+                    redirectTo: 'index.html'
                 }
             });
             if (error) console.error('Error:', error.message);
         });
+        */
 
         document.getElementById('googleLogin').addEventListener('click', async () => {
-            const { error } = await window.supabaseClient.auth.signInWithOAuth({
-                provider: 'google',
-                options: {
-                    redirectTo: 'index.html' // Changed from absolute to relative path
+            try {
+                const { data, error } = await window.supabaseClient.auth.signInWithOAuth({
+                    provider: 'google',
+                    options: {
+                        redirectTo: window.location.origin + '/index.html'
+                    }
+                });
+                if (error) {
+                    console.error('Google login error:', error);
+                    alert('Error logging in with Google: ' + error.message);
                 }
-            });
-            if (error) console.error('Error:', error.message);
+            } catch (err) {
+                console.error('Unexpected error during Google login:', err);
+                alert('An unexpected error occurred during Google login');
+            }
         });
     </script>
 </body>
