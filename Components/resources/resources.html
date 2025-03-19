@@ -14,7 +14,35 @@
 <body>
     <!-- Header -->
     <header class="main-header">
-        // ...existing header code...
+        <div class="header-container">
+            <div class="header-left">
+                <h4 class="brand-name">AlgoMinds</h4>
+                <div class="header-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="search" placeholder="Search resources..." aria-label="Search">
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="auth-buttons">
+                    <a href="../login.html" class="btn btn-outline-light btn-sm">Login</a>
+                    <a href="../login.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+                <div class="user-profile dropdown">
+                    <img src="../../assets/defaultimage.png" alt="Profile" class="profile-image"
+                        data-bs-toggle="dropdown">
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="../Profile/profile.html"><i
+                                class="fas fa-user me-2"></i>Profile</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#" id="logoutButton">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div class="container-fluid">
@@ -155,6 +183,230 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Cloud & DevOps -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header bg-purple text-white" style="background-color: #6b46c1;">
+                                <h5 class="mb-0"><i class="fas fa-cloud me-2"></i>Cloud & DevOps</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="https://aws.amazon.com/training/" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-aws me-2 text-warning"></i>
+                                        AWS Training
+                                    </a>
+                                    <a href="https://cloud.google.com/training" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-google me-2 text-primary"></i>
+                                        Google Cloud Training
+                                    </a>
+                                    <a href="https://docs.docker.com/" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-docker me-2 text-info"></i>
+                                        Docker Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Development -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header bg-orange text-white" style="background-color: #dd6b20;">
+                                <h5 class="mb-0"><i class="fas fa-mobile-alt me-2"></i>Mobile Development</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="https://developer.android.com" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-android me-2 text-success"></i>
+                                        Android Developers
+                                    </a>
+                                    <a href="https://developer.apple.com/ios/" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-apple me-2"></i>
+                                        iOS Development
+                                    </a>
+                                    <a href="https://flutter.dev/docs" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <img src="https://storage.googleapis.com/cms-storage-bucket/4fd0db61df0567c0f352.png"
+                                            alt="Flutter" style="width: 20px; margin-right: 10px;">
+                                        Flutter Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Design & Architecture -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header bg-teal text-white" style="background-color: #285e61;">
+                                <h5 class="mb-0"><i class="fas fa-sitemap me-2"></i>System Design</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="https://github.com/donnemartin/system-design-primer" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-github me-2"></i>
+                                        System Design Primer
+                                    </a>
+                                    <a href="https://www.educative.io/path/scalability-system-design" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fas fa-chalkboard-teacher me-2 text-indigo"></i>
+                                        Educative.io System Design
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI & Machine Learning -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header text-white" style="background-color: #805ad5;">
+                                <h5 class="mb-0"><i class="fas fa-brain me-2"></i>AI & Machine Learning</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="https://www.tensorflow.org/learn" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-python me-2 text-orange"></i>
+                                        TensorFlow Tutorials
+                                    </a>
+                                    <a href="https://pytorch.org/tutorials/" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch"
+                                            style="width: 20px; margin-right: 10px;">
+                                        PyTorch Tutorials
+                                    </a>
+                                    <a href="https://course.fast.ai/" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fas fa-graduation-cap me-2 text-blue"></i>
+                                        Fast.ai Courses
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Version Control & Tools -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header text-white" style="background-color: #2d3748;">
+                                <h5 class="mb-0"><i class="fas fa-code-branch me-2"></i>Developer Tools</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="https://git-scm.com/doc" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-git-alt me-2 text-orange"></i>
+                                        Git Documentation
+                                    </a>
+                                    <a href="https://code.visualstudio.com/docs" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fas fa-code me-2 text-blue"></i>
+                                        VS Code Docs
+                                    </a>
+                                    <a href="https://www.postman.com/learning-center/" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <img src="https://www.postman.com/_ar-assets/images/favicon-1-48.png"
+                                            alt="Postman" style="width: 20px; margin-right: 10px;">
+                                        Postman Learning
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube Channels -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header text-white" style="background-color: #ff0000;">
+                                <h5 class="mb-0"><i class="fab fa-youtube me-2"></i>Educational YouTube Channels</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="https://www.youtube.com/@freecodecamp" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        freeCodeCamp
+                                        <span class="badge bg-danger ms-auto">14M+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@TraversyMedia" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        Traversy Media
+                                        <span class="badge bg-danger ms-auto">2M+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@Fireship" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        Fireship
+                                        <span class="badge bg-danger ms-auto">2M+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@WebDevSimplified" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        Web Dev Simplified
+                                        <span class="badge bg-danger ms-auto">1M+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@NetNinja" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        The Net Ninja
+                                        <span class="badge bg-danger ms-auto">1M+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@TheCodingTrain" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        The Coding Train
+                                        <span class="badge bg-danger ms-auto">1.2M+ Subs</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DSA YouTube Channels -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-header text-white" style="background-color: #ff0000;">
+                                <h5 class="mb-0"><i class="fab fa-youtube me-2"></i>DSA & Interview Prep Channels</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="https://www.youtube.com/@takeUforward" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        take U forward
+                                        <span class="badge bg-danger ms-auto">500K+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@BackToBackSWE" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        Back To Back SWE
+                                        <span class="badge bg-danger ms-auto">200K+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@NeetCode" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        NeetCode
+                                        <span class="badge bg-danger ms-auto">500K+ Subs</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@CodeWithHarry" target="_blank"
+                                        class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <i class="fab fa-youtube me-2 text-danger"></i>
+                                        CodeWithHarry
+                                        <span class="badge bg-danger ms-auto">4M+ Subs</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -162,10 +414,38 @@
 
     <!-- Footer -->
     <footer class="footer">
-        // ...existing footer code...
+        <div class="footer-container">
+            <div class="footer-logo-section">
+                <img src="../../assets/Google_developrs_footer.svg" alt="Google Developers Logo" class="footer-logo">
+            </div>
+            <div class="footer-services">
+                <p class="footer-text">Services</p>
+                <p><a href="/feedback" class="footer-link">Feedback Page</a></p>
+            </div>
+            <div class="footer-info">
+                <p class="footer-text">Info</p>
+                <p><a href="/about" class="footer-link">About us</a></p>
+                <p><a href="/team" class="footer-link">Our Team</a></p>
+                <p><a href="/event" class="footer-link">Event</a></p>
+                <p><a href="/" class="footer-link">Home</a></p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>©-2025 Copyright</p>
+        </div>
+        <div class="footer-social">
+            <a href="#" target="_blank">
+                <img src="../../assets/Facebook_icon.svg" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/gdgoncampus.vitap/" target="_blank">
+                <img src="../../assets/Instagram_icon.svg" alt="Instagram" class="social-icon">
+            </a>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="../../script.js"></script>
 </body>
 
 </html>
