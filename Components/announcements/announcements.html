@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements | AlgoMinds</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../../style/style.css" rel="stylesheet">
+    <link href="../../style/header.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <h4 class="brand-name">AlgoMinds</h4>
+                <div class="header-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="search" placeholder="Search announcements..." aria-label="Search">
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="auth-buttons">
+                    <a href="../login.html" class="btn btn-outline-light btn-sm">Login</a>
+                    <a href="../login.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+                <div class="user-profile dropdown">
+                    <img src="../../assets/defaultimage.png" alt="Profile" class="profile-image"
+                        data-bs-toggle="dropdown">
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#" id="logoutButton">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 sidebar p-3">
+                <h4 class="mb-4">AlgoMinds</h4>
+                <nav class="nav flex-column">
+                    <a class="nav-link text-white" href="../../index.html"><i class="fas fa-home me-2"></i>Dashboard</a>
+                    <a class="nav-link text-white" href="../lostAndFound/lostandfound.html"><i
+                            class="fas fa-book me-2"></i>Lost and Found</a>
+                    <a class="nav-link text-white" href="../Libraryreccomned/Library.html"><i
+                            class="fas fa-tasks me-2"></i>Library</a>
+                    <a class="nav-link text-white" href="../Wikipage/Wiki.html"><i
+                            class="fas fa-chart-bar me-2"></i>Wiki profile</a>
+                    <a class="nav-link text-white" href="../Campus_Compass/Campus_Compass.html"><i
+                            class="fa-solid fa-list"></i>Campus Compass</a>
+                    <a class="nav-link text-white active" href="#"><i class="fas fa-bullhorn me-2"></i>Announcements</a>
+                </nav>
+            </div>
+
+            <!-- Announcements Content -->
+            <div class="col-lg-10 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Announcements</h2>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Filter by Category
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Academic</a></li>
+                            <li><a class="dropdown-item" href="#">Events</a></li>
+                            <li><a class="dropdown-item" href="#">Administrative</a></li>
+                            <li><a class="dropdown-item" href="#">Campus Life</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Announcements List -->
+                <div class="list-group">
+                    <!-- Important Announcement -->
+                    <div class="list-group-item list-group-item-action border-start border-danger border-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-1"><i class="fas fa-exclamation-circle text-danger me-2"></i>Important: Campus
+                                Maintenance Notice</h5>
+                            <small class="text-muted">2 days ago</small>
+                        </div>
+                        <p class="mb-1">Campus maintenance will be conducted this weekend. Some facilities may be
+                            temporarily unavailable.</p>
+                        <small class="text-muted">Category: Administrative</small>
+                    </div>
+
+                    <!-- Academic Announcement -->
+                    <div class="list-group-item list-group-item-action border-start border-primary border-4 mt-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-1"><i class="fas fa-graduation-cap text-primary me-2"></i>Final Exam Schedule
+                                Released</h5>
+                            <small class="text-muted">3 days ago</small>
+                        </div>
+                        <p class="mb-1">The final examination schedule for the current semester has been published.</p>
+                        <small class="text-muted">Category: Academic</small>
+                    </div>
+
+                    <!-- Event Announcement -->
+                    <div class="list-group-item list-group-item-action border-start border-success border-4 mt-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-1"><i class="fas fa-calendar-alt text-success me-2"></i>Annual Cultural Fest
+                            </h5>
+                            <small class="text-muted">1 week ago</small>
+                        </div>
+                        <p class="mb-1">Registration for the Annual Cultural Fest is now open. Don't miss out on the
+                            exciting events!</p>
+                        <small class="text-muted">Category: Events</small>
+                    </div>
+
+                    <!-- Campus Life Announcement -->
+                    <div class="list-group-item list-group-item-action border-start border-info border-4 mt-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-1"><i class="fas fa-info-circle text-info me-2"></i>New Club Registrations
+                            </h5>
+                            <small class="text-muted">1 week ago</small>
+                        </div>
+                        <p class="mb-1">Student clubs are now accepting new members. Check out the various clubs and
+                            join today!</p>
+                        <small class="text-muted">Category: Campus Life</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        // ...existing footer code...
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="../../script.js"></script>
+</body>
+
+</html>

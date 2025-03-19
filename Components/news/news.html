@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus News | AlgoMinds</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../../style/style.css" rel="stylesheet">
+    <link href="../../style/header.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header (same as index.html) -->
+    <header class="main-header">
+        // ...existing header code...
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 sidebar p-3">
+                <h4 class="mb-4">AlgoMinds</h4>
+                <nav class="nav flex-column">
+                    <a class="nav-link text-white" href="../../index.html"><i class="fas fa-home me-2"></i>Dashboard</a>
+                    <a class="nav-link text-white" href="../lostAndFound/lostandfound.html"><i
+                            class="fas fa-book me-2"></i>Lost and Found</a>
+                    <a class="nav-link text-white" href="../Libraryreccomned/Library.html"><i
+                            class="fas fa-tasks me-2"></i>Library</a>
+                    <a class="nav-link text-white" href="../Wikipage/Wiki.html"><i
+                            class="fas fa-chart-bar me-2"></i>Wiki profile</a>
+                    <a class="nav-link text-white" href="../Campus_Compass/Campus_Compass.html"><i
+                            class="fa-solid fa-list"></i>Campus Compass</a>
+                    <a class="nav-link text-white active" href="#"><i class="fas fa-newspaper me-2"></i>Campus News</a>
+                </nav>
+            </div>
+
+            <!-- News Content -->
+            <div class="col-lg-10 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Campus News</h2>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Filter News
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Latest News</a></li>
+                            <li><a class="dropdown-item" href="#">Academic</a></li>
+                            <li><a class="dropdown-item" href="#">Sports</a></li>
+                            <li><a class="dropdown-item" href="#">Cultural</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- News Articles -->
+                <div class="row g-4">
+                    <!-- Featured News -->
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="../../assets/defaultimage.png" class="img-fluid rounded-start"
+                                        alt="Featured News">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <span class="badge bg-primary mb-2">Featured</span>
+                                        <h3 class="card-title">New Research Center Opening</h3>
+                                        <p class="card-text">State-of-the-art research facility opening next month to
+                                            advance technological innovation...</p>
+                                        <p class="card-text"><small class="text-muted">Posted 2 hours ago</small></p>
+                                        <a href="#" class="btn btn-primary">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regular News Cards -->
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="../../assets/defaultimage.png" class="card-img-top" alt="News 1">
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Academic</span>
+                                <h5 class="card-title">Academic Excellence Awards</h5>
+                                <p class="card-text">Annual academic awards ceremony celebrates student achievements...
+                                </p>
+                                <p class="text-muted"><small><i class="fas fa-clock me-1"></i>1 day ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="../../assets/defaultimage.png" class="card-img-top" alt="News 2">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Sports</span>
+                                <h5 class="card-title">Campus Sports Tournament</h5>
+                                <p class="card-text">Inter-college sports meet begins next week with new events...</p>
+                                <p class="text-muted"><small><i class="fas fa-clock me-1"></i>2 days ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="../../assets/defaultimage.png" class="card-img-top" alt="News 3">
+                            <div class="card-body">
+                                <span class="badge bg-warning mb-2">Cultural</span>
+                                <h5 class="card-title">Cultural Week Highlights</h5>
+                                <p class="card-text">Recap of the vibrant cultural week celebrations on campus...</p>
+                                <p class="text-muted"><small><i class="fas fa-clock me-1"></i>3 days ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        // ...existing footer code...
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="../../script.js"></script>
+</body>
+
+</html>
