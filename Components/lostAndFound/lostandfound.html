@@ -69,17 +69,23 @@
             border-color: #495057;
         }
 
-        .item-image {
+        .item-image-container {
+            margin-top: 1rem;
             border-radius: 0.5rem;
-            max-height: 200px;
-            object-fit: cover;
+            overflow: hidden;
+            max-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
         }
 
-        .item-details {
-            background-color: #f8f9fa;
-            padding: 1rem;
+        .item-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
             border-radius: 0.5rem;
-            margin-top: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -289,7 +295,11 @@
                         <small class="d-block mb-1">Lost on: ${new Date(item.date_lost).toLocaleDateString()}</small>
                         <small class="d-block">Contact: ${item.contact_info}</small>
                     </div>
-                    ${item.image_url ? `<img src="${item.image_url}" class="img-fluid mt-3 item-image w-100" alt="Item image">` : ''}
+                    ${item.image_url ? `
+                        <div class="item-image-container">
+                            <img src="${item.image_url}" class="item-image" alt="Lost item: ${item.title}">
+                        </div>
+                    ` : ''}
                 `
                 listContainer.appendChild(itemElement)
             })
