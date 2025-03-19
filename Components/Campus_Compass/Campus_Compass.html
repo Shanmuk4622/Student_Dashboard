@@ -1,69 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Compass</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../../style/style.css" rel="stylesheet">
+    <link href="../../style/header.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 font-sans">
-
-    <!-- 🌟 Navbar -->
-    <nav class="bg-gradient-to-r from-blue-600 to-indigo-700 p-5 text-white text-center text-2xl font-bold shadow-md">
-        🚀 Campus Compass
-    </nav>
-
-    <div class="max-w-3xl mx-auto mt-6 p-4">
-
-        <!-- 🔍 Search Bar -->
-        <div class="mb-6">
-            <input id="searchInput" type="text" placeholder="🔍 Search campus locations..." 
-                class="w-full p-3 border-2 border-blue-300 rounded-lg shadow-md transition-all focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                onkeyup="filterList()">
-        </div>
-
-        <!-- 📌 Searchable Locations -->
-        <ul id="locationList" class="space-y-3">
-            <li class="p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-105">🏫 Main Building</li>
-            <li class="p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-105">📚 Library</li>
-            <li class="p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-105">☕ Cafeteria</li>
-            <li class="p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-105">🖨️ Printing Shop</li>
-            <li class="p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-105">🏢 Hostel Block A</li>
-        </ul>
-
-        <!-- 🚨 Quick Dial Emergency -->
-        <h2 class="mt-8 text-lg font-semibold text-gray-800">🚨 Quick Emergency Contacts</h2>
-        <div class="mt-3 space-y-3">
-            <a href="tel:100" class="block bg-red-500 text-white text-center p-4 rounded-lg shadow-md hover:bg-red-600 transition-all">🚔 Security - 100</a>
-            <a href="tel:108" class="block bg-red-600 text-white text-center p-4 rounded-lg shadow-md hover:bg-red-700 transition-all">🚑 Medical Help - 108</a>
-            <a href="tel:101" class="block bg-red-400 text-white text-center p-4 rounded-lg shadow-md hover:bg-red-500 transition-all">🔥 Fire Department - 101</a>
-        </div>
-
-        <!-- 📅 Event & Workshop Notifications -->
-        <h2 class="mt-8 text-lg font-semibold text-gray-800">📅 Upcoming Events & Workshops</h2>
-        <div class="mt-3 space-y-4">
-            <div class="p-5 bg-white rounded-lg shadow-md border-l-4 border-blue-500 hover:shadow-lg transition-all">
-                <h3 class="font-bold text-blue-700">💡 AI Hackathon 2024</h3>
-                <p class="text-gray-600">📅 Date: March 25, 2024 | 📍 Venue: CB 305</p>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <h4 class="brand-name">AlgoMinds</h4>
+                <div class="header-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="search" placeholder="Search locations..." aria-label="Search">
+                </div>
             </div>
-            <div class="p-5 bg-white rounded-lg shadow-md border-l-4 border-green-500 hover:shadow-lg transition-all">
-                <h3 class="font-bold text-green-700">📜 Resume Building Workshop</h3>
-                <p class="text-gray-600">📅 Date: April 5, 2024 | 📍 Venue: Newton Hall</p>
+
+            <div class="header-actions">
+                <div class="auth-buttons">
+                    <a href="../login.html" class="btn btn-outline-light btn-sm">Login</a>
+                    <a href="../login.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
             </div>
         </div>
+    </header>
 
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 sidebar p-3">
+                <h4 class="mb-4">AlgoMinds</h4>
+                <nav class="nav flex-column">
+                    <a class="nav-link text-white" href="../../index.html"><i class="fas fa-home me-2"></i>Dashboard</a>
+                    <a class="nav-link text-white" href="../lostAndFound/lostandfound.html"><i
+                            class="fas fa-book me-2"></i>Lost and Found</a>
+                    <a class="nav-link text-white" href="../Libraryreccomned/Library.html"><i
+                            class="fas fa-tasks me-2"></i>Library</a>
+                    <a class="nav-link text-white" href="../Wikipage/Wiki.html"><i
+                            class="fas fa-chart-bar me-2"></i>Wiki profile</a>
+                    <a class="nav-link text-white active" href="#"><i class="fa-solid fa-compass me-2"></i>Campus
+                        Compass</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 p-4">
+                <div class="welcome-section mb-4">
+                    <h2>Campus Compass</h2>
+                    <p>Find your way around campus with ease</p>
+                </div>
+
+                <!-- Search Bar with improved styling -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input id="searchInput" type="text" class="form-control form-control-lg"
+                                placeholder="Search campus locations..." onkeyup="filterList()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Locations List -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Campus Locations</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul id="locationList" class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-building me-3 text-primary"></i>
+                                        <span>🏫 Main Building</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-book me-3 text-success"></i>
+                                        <span>📚 Library</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-coffee me-3 text-warning"></i>
+                                        <span>☕ Cafeteria</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-print me-3 text-info"></i>
+                                        <span>🖨️ Printing Shop</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-home me-3 text-secondary"></i>
+                                        <span>🏢 Hostel Block A</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contacts -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0"><i class="fas fa-phone-alt me-2"></i>Emergency Contacts</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-grid gap-3">
+                                    <a href="tel:100"
+                                        class="btn btn-danger d-flex align-items-center justify-content-between">
+                                        <span><i class="fas fa-shield-alt me-2"></i>Security</span>
+                                        <span class="badge bg-light text-danger">100</span>
+                                    </a>
+                                    <a href="tel:108"
+                                        class="btn btn-danger d-flex align-items-center justify-content-between">
+                                        <span><i class="fas fa-ambulance me-2"></i>Medical Help</span>
+                                        <span class="badge bg-light text-danger">108</span>
+                                    </a>
+                                    <a href="tel:101"
+                                        class="btn btn-danger d-flex align-items-center justify-content-between">
+                                        <span><i class="fas fa-fire-extinguisher me-2"></i>Fire Department</span>
+                                        <span class="badge bg-light text-danger">101</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Section -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-calendar me-2"></i>Upcoming Events & Workshops</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="fas fa-laptop-code me-2"></i>AI Hackathon 2024
+                                        </h5>
+                                        <p class="card-text">
+                                            <i class="fas fa-calendar-alt me-2"></i>March 25, 2024<br>
+                                            <i class="fas fa-map-marker-alt me-2"></i>CB 305
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="fas fa-file-alt me-2"></i>Resume Building Workshop
+                                        </h5>
+                                        <p class="card-text">
+                                            <i class="fas fa-calendar-alt me-2"></i>April 5, 2024<br>
+                                            <i class="fas fa-map-marker-alt me-2"></i>Newton Hall
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-section">
+                <img src="../../assets/Google_developrs_footer.svg" alt="Google Developers Logo" class="footer-logo">
+            </div>
+            <div class="footer-services">
+                <p class="footer-text">Services</p>
+                <p><a href="/feedback" class="footer-link">Feedback Page</a></p>
+            </div>
+            <div class="footer-info">
+                <p class="footer-text">Info</p>
+                <p><a href="/about" class="footer-link">About us</a></p>
+                <p><a href="/team" class="footer-link">Our Team</a></p>
+                <p><a href="/event" class="footer-link">Event</a></p>
+                <p><a href="/" class="footer-link">Home</a></p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>©-2025 Copyright</p>
+        </div>
+        <div class="footer-social">
+            <a href="#" target="_blank">
+                <img src="../../assets/Facebook_icon.svg" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/gdgoncampus.vitap/" target="_blank">
+                <img src="../../assets/Instagram_icon.svg" alt="Instagram" class="social-icon">
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
         function filterList() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let items = document.querySelectorAll("#locationList li");
-
             items.forEach(item => {
-                item.style.display = item.innerText.toLowerCase().includes(input) ? "" : "none";
+                item.style.display = item.textContent.toLowerCase().includes(input) ? "" : "none";
             });
         }
     </script>
-
 </body>
+
 </html>
