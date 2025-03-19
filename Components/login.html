@@ -40,8 +40,8 @@
                 <input type="email" id="emailInput" placeholder="Your email" required>
                 <input type="password" id="passwordInput" placeholder="Password" required>
                 <div class="form-buttons">
-                    <button type="button" id="signupButton" class="email-button">Sign Up</button>
                     <button type="button" id="loginButton" class="email-button">Log In</button>
+                    <button type="button" id="signupButton" class="email-button">Sign Up</button>
                 </div>
             </form>
         </div>
@@ -95,7 +95,7 @@
             if (error) {
                 alert('Error logging in: ' + error.message);
             } else {
-                window.location.href = 'index.html'; // Changed from absolute to relative path
+                window.location.href = '../index.html'; // Changed from absolute to relative path
             }
         });
 
