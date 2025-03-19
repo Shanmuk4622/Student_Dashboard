@@ -1,16 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .login-container {
     max-width: 400px;
-    margin: 100px auto;
+    margin: 0 auto;
     padding: 40px;
-    background: #1A1A1A;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
+    transition: transform 0.2s;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
 }
 
 .login-container h1 {
     margin-bottom: 30px;
-    color: #3ECF8E;
+    color: #f3f4f6;
 }
 
 .auth-options {
@@ -28,16 +43,17 @@
     padding: 12px;
     border: none;
     border-radius: 6px;
-    background: #242424;
-    color: #E0E0E0;
+    background: #2c3e50;
+    color: #f3f4f6;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .login-button:hover {
-    background: #2A2A2A;
-    transform: translateY(-1px);
+    background: #34495e;
+    transform: translateY(-2px);
+    color: #60a5fa;
 }
 
 .login-button img {
@@ -53,17 +69,25 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
-    border: 1px solid #404040;
+    border: 1px solid #374151;
     border-radius: 6px;
-    background: #242424;
-    color: #E0E0E0;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #f3f4f6;
     font-size: 14px;
+    transition: all 0.2s;
+    opacity: 0.9;
 }
 
 .login-form input:focus {
-    border-color: #3ECF8E;
+    border-color: #60a5fa;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.2);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+    opacity: 1;
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+}
+
+.login-form input::placeholder {
+    color: #9ca3af;
 }
 
 .form-buttons {
@@ -77,16 +101,16 @@
     padding: 12px;
     border: none;
     border-radius: 6px;
-    background: #3ECF8E;
-    color: #000;
+    background: #60a5fa;
+    color: #f3f4f6;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .email-button:hover {
-    background: #45E89C;
-    transform: translateY(-1px);
+    background: #3b82f6;
+    transform: translateY(-2px);
 }
 
 .divider {
@@ -114,8 +138,9 @@
 }
 
 .divider span {
-    background: #1A1A1A;
+    background: transparent;
     padding: 0 10px;
-    color: #666;
+    color: #9ca3af;
     font-size: 14px;
+    font-weight: 600;
 }
