@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Lost and Found Portal</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Report Lost Item</h3>
+                        <form id="lostItemForm">
+                            <div class="mb-3">
+                                <label class="form-label">Title</label>
+                                <input type="text" class="form-control" id="itemTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" id="itemDescription" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Location Lost</label>
+                                <input type="text" class="form-control" id="itemLocation" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Date Lost</label>
+                                <input type="date" class="form-control" id="dateLost" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Contact Information</label>
+                                <input type="text" class="form-control" id="contactInfo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Image URL</label>
+                                <input type="url" class="form-control" id="imageUrl">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Report</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Lost Items</h3>
+                        <div id="lostItemsList" class="list-group">
+                            <!-- Items will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://jwtmgwcilqgmjhsiwgtu.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3dG1nd2NpbHFnbWpoc2l3Z3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIzNjgxNTIsImV4cCI6MjA1Nzk0NDE1Mn0.ubKykLz7X_62S4c3zviyNO_6Pz-Gz2W5htdbolROgIc'
+
+        // Initialize Supabase client directly
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
+
+        // Rest of your code using supabaseClient
+        document.getElementById('lostItemForm').addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+            if (!supabaseClient) {
+                alert('Database connection not established')
+                return
+            }
+
+            const formData = {
+                title: document.getElementById('itemTitle').value,
+                description: document.getElementById('itemDescription').value,
+                location: document.getElementById('itemLocation').value,
+                date_lost: document.getElementById('dateLost').value,
+                contact_info: document.getElementById('contactInfo').value,
+                image_url: document.getElementById('imageUrl').value
+            }
+
+            const { data, error } = await supabaseClient
+                .from('lost_items')
+                .insert([formData])
+
+            if (error) {
+                alert('Error submitting report: ' + error.message)
+            } else {
+                alert('Report submitted successfully!')
+                loadLostItems()
+                e.target.reset()
+            }
+        })
+
+        async function loadLostItems() {
+            if (!supabaseClient) {
+                console.error('Database connection not established')
+                return
+            }
+
+            const { data, error } = await supabaseClient
+                .from('lost_items')
+                .select('*')
+                .order('created_at', { ascending: false })
+
+            if (error) {
+                console.error('Error loading items:', error)
+                return
+            }
+
+            const listContainer = document.getElementById('lostItemsList')
+            listContainer.innerHTML = ''
+
+            data.forEach(item => {
+                const itemElement = document.createElement('div')
+                itemElement.className = 'list-group-item'
+                itemElement.innerHTML = `
+                    <h5>${item.title}</h5>
+                    <p>${item.description}</p>
+                    <small>Location: ${item.location}</small><br>
+                    <small>Lost on: ${new Date(item.date_lost).toLocaleDateString()}</small><br>
+                    <small>Contact: ${item.contact_info}</small>
+                    ${item.image_url ? `<img src="${item.image_url}" class="img-fluid mt-2" alt="Item image">` : ''}
+                `
+                listContainer.appendChild(itemElement)
+            })
+        }
+
+        // Load items when page loads
+        loadLostItems()
+    </script>
+</body>
+
+</html>
