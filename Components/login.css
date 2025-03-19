@@ -1,0 +1,121 @@
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    background: #1A1A1A;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 30px;
+    color: #3ECF8E;
+}
+
+.auth-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #242424;
+    color: #E0E0E0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background: #2A2A2A;
+    transform: translateY(-1px);
+}
+
+.login-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.login-form {
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #404040;
+    border-radius: 6px;
+    background: #242424;
+    color: #E0E0E0;
+    font-size: 14px;
+}
+
+.login-form input:focus {
+    border-color: #3ECF8E;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.2);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.email-button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #3ECF8E;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.email-button:hover {
+    background: #45E89C;
+    transform: translateY(-1px);
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #404040;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.divider span {
+    background: #1A1A1A;
+    padding: 0 10px;
+    color: #666;
+    font-size: 14px;
+}

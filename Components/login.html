@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - Pulse Engine</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="logo-container">
+        <a href="index.html"> <img src="styles/math.png" alt="Logo"> </a>
+    </div>
+
+    <div class="login-container">
+
+        <h1>Welcome to Pulse Engine</h1>
+
+        <div class="auth-options">
+            <!-- <button id="githubLogin" class="login-button"></button>
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                Continue with GitHub
+            </button> -->
+            <!-- <code>if email login is not working use google login</code> -->
+            <button id="googleLogin" class="login-button">
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+                    alt="Google">
+                Continue with Google
+            </button>
+        </div>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+        <!-- Add email login form -->
+        <div class="email-login">
+            <form id="emailForm" class="login-form">
+                <input type="email" id="emailInput" placeholder="Your email" required>
+                <input type="password" id="passwordInput" placeholder="Password" required>
+                <div class="form-buttons">
+                    <button type="button" id="signupButton" class="email-button">Sign Up</button>
+                    <button type="button" id="loginButton" class="email-button">Log In</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://jwtmgwcilqgmjhsiwgtu.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3dG1nd2NpbHFnbWpoc2l3Z3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIzNjgxNTIsImV4cCI6MjA1Nzk0NDE1Mn0.ubKykLz7X_62S4c3zviyNO_6Pz-Gz2W5htdbolROgIc'
+        window.supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Email authentication handlers
+        document.getElementById('signupButton').addEventListener('click', async () => {
+            try {
+                const email = document.getElementById('emailInput').value;
+                const password = document.getElementById('passwordInput').value;
+
+                console.log('Attempting signup with:', email);
+
+                const { data, error } = await window.supabaseClient.auth.signUp({
+                    email,
+                    password,
+                    options: {
+                        emailRedirectTo: window.location.origin + '/index.html'
+                    }
+                });
+
+                if (error) {
+                    console.error('Signup error:', error);
+                    alert('Error signing up: ' + error.message);
+                } else {
+                    console.log('Signup successful:', data);
+                    alert('Success! Check your email for the confirmation link.');
+                }
+            } catch (err) {
+                console.error('Unexpected error:', err);
+                alert('An unexpected error occurred');
+            }
+        });
+
+        document.getElementById('loginButton').addEventListener('click', async () => {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+                email,
+                password
+            });
+
+            if (error) {
+                alert('Error logging in: ' + error.message);
+            } else {
+                window.location.href = 'index.html'; // Changed from absolute to relative path
+            }
+        });
+
+        document.getElementById('githubLogin').addEventListener('click', async () => {
+            const { error } = await window.supabaseClient.auth.signInWithOAuth({
+                provider: 'github',
+                options: {
+                    redirectTo: 'index.html' // Changed from absolute to relative path
+                }
+            });
+            if (error) console.error('Error:', error.message);
+        });
+
+        document.getElementById('googleLogin').addEventListener('click', async () => {
+            const { error } = await window.supabaseClient.auth.signInWithOAuth({
+                provider: 'google',
+                options: {
+                    redirectTo: 'index.html' // Changed from absolute to relative path
+                }
+            });
+            if (error) console.error('Error:', error.message);
+        });
+    </script>
+</body>
+
+</html>
